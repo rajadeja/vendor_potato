@@ -21,6 +21,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# Gapps
+ifeq ($(WITH_GAPPS),true)
+$(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
+endif
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/potato/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
